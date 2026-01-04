@@ -1,10 +1,10 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base-node18:3.19
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:3.19
 FROM ${BUILD_FROM}
 
-RUN apk add --no-cache python3 make g++
+# Installer Node.js 18 og npm
+RUN apk add --no-cache nodejs npm python3 make g++
 
 WORKDIR /app
-
 COPY rootfs/app /app
 
 RUN npm install
