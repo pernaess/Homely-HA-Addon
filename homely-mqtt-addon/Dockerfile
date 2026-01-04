@@ -5,6 +5,7 @@ RUN apk add --no-cache nodejs npm python3 make g++
 
 WORKDIR /app
 COPY rootfs/app /app
+COPY rootfs/config /app/config  # <-- Legg til config
 
 RUN npm install
 RUN npm run build
